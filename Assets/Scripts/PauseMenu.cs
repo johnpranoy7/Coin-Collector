@@ -3,28 +3,21 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
-    public GameObject pauseMenuUI;
+    public GameObject pausePanel;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
-    {
-        if(Input.GetButtonDown("Cancel"))
+    {   
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pauseMenuUI.activeSelf)
+            if (!pausePanel.activeSelf)
             {
-                pauseMenuUI.SetActive(true);
+                pausePanel.SetActive(true);
                 Time.timeScale = 0f;
                 Cursor.visible = true;
             }
             else
             {
-                pauseMenuUI.SetActive(false);
+                pausePanel.SetActive(false);
                 Time.timeScale = 1f;
                 Cursor.visible = false;
             }
@@ -33,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pausePanel.SetActive(false);
         Time.timeScale = 1f;
         Cursor.visible = false;
     }

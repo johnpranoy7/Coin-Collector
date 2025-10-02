@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Platformer
 {
     public class PlayerController : MonoBehaviour
@@ -20,12 +21,15 @@ namespace Platformer
         private Rigidbody2D rigidbody;
         private Animator animator;
         private GameManager gameManager;
+        public HealthBar healthBar;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            //healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            healthBar.setMaxHealth(100);
         }
 
         private void FixedUpdate()
@@ -80,12 +84,21 @@ namespace Platformer
         {
             if (other.gameObject.tag == "Enemy")
             {
-                deathState = true; // Say to GameManager that player is dead
+                //deathState = true; // Say to GameManager that player is dead
+                healthBar.setHealth(healthBar.healthSlider.value - 20);
+                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                Debug.Log("Player hit by enemy. Health: " + healthBar.healthSlider.value);
+            }
+            
+            if(healthBar.healthSlider.value <= 0)
+            {
+                deathState = true;
             }
             else
             {
                 deathState = false;
             }
+
         }
 
         private void OnTriggerEnter2D(Collider2D other)
