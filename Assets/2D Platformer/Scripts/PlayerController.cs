@@ -86,7 +86,7 @@ namespace Platformer
             {
                 //deathState = true; // Say to GameManager that player is dead
                 healthBar.setHealth(healthBar.healthSlider.value - 20);
-                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse); 
                 Debug.Log("Player hit by enemy. Health: " + healthBar.healthSlider.value);
             }
             
