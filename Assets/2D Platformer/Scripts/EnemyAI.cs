@@ -12,10 +12,13 @@ namespace Platformer
 
         private Rigidbody2D rigidbody; 
         public Collider2D triggerCollider;
-        
+        private AudioSource enemySound;
+
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+
+            enemySound = GetComponent<AudioSource>();
         }
 
         void Update()
@@ -35,6 +38,14 @@ namespace Platformer
         {
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
             moveSpeed *= -1;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                AudioSource.PlayClipAtPoint(enemySound.clip, transform.position);
+            }
         }
     }
 }

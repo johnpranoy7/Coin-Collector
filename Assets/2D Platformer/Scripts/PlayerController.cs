@@ -22,11 +22,13 @@ namespace Platformer
         private Animator animator;
         private GameManager gameManager;
         public HealthBar healthBar;
+        private AudioSource coinSound;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            coinSound = GetComponent<AudioSource>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             //healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
             healthBar.setMaxHealth(100);
@@ -53,6 +55,7 @@ namespace Platformer
             if(Input.GetKeyDown(KeyCode.Space) && isGrounded )
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                AudioSource.PlayClipAtPoint(coinSound.clip, transform.position);
             }
             if (!isGrounded)animator.SetInteger("playerState", 2); // Turn on jump animation
 
