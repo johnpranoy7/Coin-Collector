@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,4 +16,5 @@ public class VictoryMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit Game");
     }
+
 }

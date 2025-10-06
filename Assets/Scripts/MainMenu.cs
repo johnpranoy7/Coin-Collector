@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +9,14 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Loading Easy Level");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("EasyLevel");
+        StartCoroutine(WaitAndLoadScene("EasyLevel"));
     }
 
     public void loadMediumLevel()
     {
         Debug.Log("Loading Medium Level");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MediumLevel");
+        StartCoroutine(WaitAndLoadScene("MediumLevel"));
     }
 
     public void QuitGame()
@@ -23,4 +24,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit Game");
     }
+    private IEnumerator WaitAndLoadScene(string sceneName)
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneName);
+    }
+
 }

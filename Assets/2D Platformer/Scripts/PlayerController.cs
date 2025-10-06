@@ -22,13 +22,14 @@ namespace Platformer
         private Animator animator;
         private GameManager gameManager;
         public HealthBar healthBar;
-        private AudioSource coinSound;
+        [SerializeField] private AudioSource coinSound;
+        [SerializeField] private AudioSource deathSound;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-            coinSound = GetComponent<AudioSource>();
+            //coinSound = GetComponent<AudioSource>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             //healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
             healthBar.setMaxHealth(100);
@@ -96,6 +97,7 @@ namespace Platformer
             if(healthBar.healthSlider.value <= 0)
             {
                 deathState = true;
+                AudioSource.PlayClipAtPoint(deathSound.clip, transform.position);
             }
             else
             {
