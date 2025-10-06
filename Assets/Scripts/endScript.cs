@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+
 public class endScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +19,7 @@ public class endScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            EditorSceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Level2");
         }
     }
 

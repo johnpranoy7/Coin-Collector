@@ -1,7 +1,4 @@
-using System.IO;
-using Unity.Android.Types;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {

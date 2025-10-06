@@ -2239,6 +2239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1506508267755725129, guid: 09350495185a66d478dc21270686bf1b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1506508267755725131, guid: 09350495185a66d478dc21270686bf1b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -25139,6 +25143,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423769637242291489, guid: 241639964c42a4e47996c351cf9f218a, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564575423180635094, guid: 241639964c42a4e47996c351cf9f218a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564575423180635094, guid: 241639964c42a4e47996c351cf9f218a, type: 3}
+      propertyPath: m_ScreenMatchMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27073,7 +27085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5439596532191873267, guid: 41c2e8faf31f0e142b19c01fcb481719, type: 3}
       propertyPath: orthographic size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31502,6 +31514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1607959736383008822, guid: 5bba9c2bcf817244ab02edad5215d670, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412323421195168723, guid: 5bba9c2bcf817244ab02edad5215d670, type: 3}
       propertyPath: m_Pivot.x
       value: 0
