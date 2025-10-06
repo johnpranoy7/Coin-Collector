@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class VictoryMenu : MonoBehaviour
 {
+    void Update()
+    {
+      Cursor.visible = true;
+    }
 
     public void backtoMainMenu()
     {
