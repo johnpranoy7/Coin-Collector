@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public bool isGrounded;
     private float move;
+    private float horizontalInput = 0f;
 
     void Start()
     {
@@ -15,7 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
+        //move = Input.GetAxis("Horizontal");
+        move = horizontalInput != 0 ? horizontalInput : Input.GetAxis("Horizontal");
+
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -39,5 +42,11 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+   /* For UI Movement Buttons */
+    public void MoveLeftDown() { move = -1f; }
+    public void MoveRightDown() { move = 1f; }
+    public void StopMoving() { move = 0f; }
+
 
 }

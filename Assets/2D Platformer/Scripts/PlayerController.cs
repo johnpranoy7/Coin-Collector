@@ -10,7 +10,7 @@ namespace Platformer
         public float movingSpeed;
         public float jumpForce;
         private float moveInput;
-
+        
         private bool facingRight = false;
         [HideInInspector]
         public bool deathState = false;
