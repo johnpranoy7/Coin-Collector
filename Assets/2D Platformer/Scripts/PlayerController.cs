@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using myUIEvents;
 
 
 namespace Platformer
@@ -10,6 +11,8 @@ namespace Platformer
         public float movingSpeed;
         public float jumpForce;
         private float moveInput;
+        private bool jumpFlag = false;
+        private bool keyboardControlFlag = false;
 
         private bool facingRight = false;
         [HideInInspector]
@@ -40,11 +43,62 @@ namespace Platformer
             CheckGround();
         }
 
+        private void OnEnable()
+        {
+            MobileHandler.goLeftEvent.AddListener(updateLeftMove);
+            MobileHandler.goRightEvent.AddListener(updateRightMove);
+            MobileHandler.stopMovingEvent.AddListener(stopMove);
+            MobileHandler.goUpEvent.AddListener(jump);
+            Debug.Log("All listeners added");
+        }
+
+        private void OnDisable()
+        {
+            MobileHandler.goLeftEvent.RemoveListener(updateLeftMove);
+            MobileHandler.goRightEvent.RemoveListener(updateRightMove);
+            MobileHandler.stopMovingEvent.RemoveListener(stopMove);
+            MobileHandler.goUpEvent.RemoveListener(jump);
+            Debug.Log("All listeners removed");
+        }
+
+        private void updateLeftMove() // new
+        {
+            moveInput = -1;
+            Debug.Log("Left event received");
+        }
+
+        private void updateRightMove() // new
+        {
+            moveInput = 1;
+        }
+
+        private void stopMove() // new
+        {
+            moveInput = 0;
+        }
+
+        private void jump()
+        {
+            Debug.Log("Jump event received");
+            jumpFlag = true;
+        }
+
+
         void Update()
         {
-            if (Input.GetButton("Horizontal")) 
+            if (Input.GetButton("Horizontal"))
             {
                 moveInput = Input.GetAxis("Horizontal");
+                keyboardControlFlag = true;
+            }
+            else 
+            {
+                keyboardControlFlag = false;
+            }
+
+
+            if (moveInput!=0) 
+            {
                 Vector3 direction = transform.right * moveInput;
                 transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
                 animator.SetInteger("playerState", 1); // Turn on run animation
@@ -53,12 +107,17 @@ namespace Platformer
             {
                 if (isGrounded) animator.SetInteger("playerState", 0); // Turn on idle animation
             }
-            if(Input.GetKeyDown(KeyCode.Space) && isGrounded )
+
+            
+
+            if ((Input.GetKeyDown(KeyCode.Space) || jumpFlag) && isGrounded)
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 AudioSource.PlayClipAtPoint(coinSound.clip, transform.position);
+                jumpFlag = false;
             }
             if (!isGrounded)animator.SetInteger("playerState", 2); // Turn on jump animation
+
 
             if(facingRight == false && moveInput > 0)
             {
@@ -68,6 +127,13 @@ namespace Platformer
             {
                 Flip();
             }
+
+
+            /* The eventListener method is triggered only once even if we keep holding the button on UI. 
+             * Whereas for the keyboard navigation it keeps sending the event. 
+             * So setup custom flag to reset moveInput for every frame in case of Keyboard */
+            if(keyboardControlFlag)
+                moveInput = 0; // reset moveInput after processing
         }
 
         private void Flip()
