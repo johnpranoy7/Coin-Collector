@@ -8,6 +8,11 @@ The game is hosted online and ready for you to play in your browser:
 
 [https://johnpranoy7.github.io/Coin-Collector/](https://johnpranoy7.github.io/Coin-Collector/)
 
+## Game Feedback Survey
+Your Feedback is vital to us to make necessary improvements to the UI and the overall Gameplay Experience.
+
+[Survey Link](https://lnkd.in/eH3_RuZ6)
+
 
 ## Controls
 
