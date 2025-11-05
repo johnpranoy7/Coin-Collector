@@ -11,16 +11,16 @@ public class MainMenu : MonoBehaviour
 
     public void loadEasyLevel()
     {
-        Debug.Log("Loading Easy Level");
+        Debug.Log("Loading Easy Intro");
         Time.timeScale = 1f;
-        StartCoroutine(WaitAndLoadScene("EasyLevel"));
+        StartCoroutine(WaitAndLoadScene("EasyIntro"));
     }
 
     public void loadMediumLevel()
     {
-        Debug.Log("Loading Medium Level");
+        Debug.Log("Loading Medium Intro");
         Time.timeScale = 1f;
-        StartCoroutine(WaitAndLoadScene("MediumLevel"));
+        StartCoroutine(WaitAndLoadScene("MediumIntro"));
     }
 
     public void QuitGame()
