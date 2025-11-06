@@ -9,19 +9,13 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void loadEasyLevel()
+    public void loadLevelSelectionMenu()
     {
-        Debug.Log("Loading Easy Intro");
+        Debug.Log("Loading SelectLevel Menu");
         Time.timeScale = 1f;
-        StartCoroutine(WaitAndLoadScene("EasyIntro"));
+        StartCoroutine(WaitAndLoadScene("SelectLevel"));
     }
 
-    public void loadMediumLevel()
-    {
-        Debug.Log("Loading Medium Intro");
-        Time.timeScale = 1f;
-        StartCoroutine(WaitAndLoadScene("MediumIntro"));
-    }
 
     public void QuitGame()
     {

@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EasyIntro.unity
     guid: ba71046c4f773684d955b4a2f146f950
+  - enabled: 1
+    path: Assets/Scenes/AboutGame.unity
+    guid: 12a812d0f1ca6cc48822454e81c0c615
+  - enabled: 1
+    path: Assets/Scenes/SelectLevel.unity
+    guid: 8987ee7ebc2e69e4cb706d1a1932c4fb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
