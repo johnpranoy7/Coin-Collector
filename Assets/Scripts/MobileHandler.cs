@@ -10,6 +10,7 @@ namespace myUIEvents
         public static UnityEvent goRightEvent = new UnityEvent();
         public static UnityEvent stopMovingEvent = new UnityEvent();
         public static UnityEvent goUpEvent = new UnityEvent();
+        public static UnityEvent showPauseMenuEvent = new UnityEvent();
 
         public void goLeft()
         {
@@ -30,6 +31,11 @@ namespace myUIEvents
         public void jump()
         {
             goUpEvent.Invoke();
+        }
+
+        public void showPauseMenu()
+        {
+            showPauseMenuEvent.Invoke();
         }
 
     }
