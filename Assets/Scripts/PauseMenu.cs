@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject uiPanel;
 
 
     private void OnEnable()
@@ -23,18 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     private void displayPauseMenuFromEvent() 
     {
-        if (!pausePanel.activeSelf)
-        {
-            pausePanel.SetActive(true);
-            Time.timeScale = 0f;
-            Cursor.visible = true;
-        }
-        else
-        {
-            pausePanel.SetActive(false);
-            Time.timeScale = 1f;
-            Cursor.visible = false;
-        }
+        pausePanelLogic();
         Debug.Log("displayPauseMenuFromEvent received");
     }
 
@@ -42,18 +32,27 @@ public class PauseMenu : MonoBehaviour
     {   
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pausePanel.activeSelf)
-            {
-                pausePanel.SetActive(true);
-                Time.timeScale = 0f;
-                Cursor.visible = true;
-            }
-            else
-            {
-                pausePanel.SetActive(false);
-                Time.timeScale = 1f;
-                Cursor.visible = false;
-            }
+            pausePanelLogic();
+        }
+    }
+
+    void pausePanelLogic()
+    {
+        if (!pausePanel.activeSelf)
+        {
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+
+            uiPanel.SetActive(false); // Hide the in-game UI panel when paused
+        }
+        else
+        {
+            pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+
+            uiPanel.SetActive(true);
         }
     }
 
@@ -64,6 +63,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = false;
         Debug.Log("Resume Game");
+        uiPanel.SetActive(true);
     }
 
     public void RestartLevel()
@@ -73,6 +73,8 @@ public class PauseMenu : MonoBehaviour
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
         Cursor.visible = false;
+
+        uiPanel.SetActive(true);
     }
 
     public void QuitGame()
