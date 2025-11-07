@@ -10,9 +10,12 @@ namespace Platformer
     {
         public float movingSpeed;
         public float jumpForce;
+        public float healthRegenerationRate;
         private float moveInput;
         private bool jumpFlag = false;
         private bool keyboardControlFlag = false;
+        private float lastDamageTime = -Mathf.Infinity; // track last damage time
+        public float damageCooldown = 0.5f; // 0.5 second cooldown
 
         private bool facingRight = false;
         [HideInInspector]
@@ -110,7 +113,7 @@ namespace Platformer
 
             
 
-            if ((Input.GetKeyDown(KeyCode.Space) || jumpFlag) && isGrounded)
+            if ( (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || jumpFlag) && isGrounded)
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 AudioSource.PlayClipAtPoint(coinSound.clip, transform.position);
@@ -152,11 +155,12 @@ namespace Platformer
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy" && (Time.time - lastDamageTime > damageCooldown))
             {
                 //deathState = true; // Say to GameManager that player is dead
-                healthBar.setHealth(healthBar.healthSlider.value - 20);
-                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse); 
+                healthBar.setHealth(healthBar.healthSlider.value - healthRegenerationRate);
+                lastDamageTime = Time.time;  // reset cooldown timer
+                rigidbody.AddForce(transform.up * jumpForce/2, ForceMode2D.Impulse); 
                 Debug.Log("Player hit by enemy. Health: " + healthBar.healthSlider.value);
             }
             

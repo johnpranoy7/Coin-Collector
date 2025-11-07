@@ -25,8 +25,8 @@ public class CameraScaler : MonoBehaviour
 
         float aspect = (float)Screen.width / Screen.height;
 
-        Debug.Log(Screen.width);
-        Debug.Log(aspect);
+        //Debug.Log(Screen.width);
+        //Debug.Log(aspect);
 
         /* Aspect Ratio Notes 
             1.77 => 8   //Typical Desktop
