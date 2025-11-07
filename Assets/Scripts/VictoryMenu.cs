@@ -16,7 +16,7 @@ public class VictoryMenu : MonoBehaviour
     public void backtoMainMenu()
     {
         Debug.Log("Loading MainMenu");
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(WaitAndLoadScene("MainMenu"));
     }
 
     public void RestartLevel()
@@ -28,6 +28,12 @@ public class VictoryMenu : MonoBehaviour
         Cursor.visible = false;
 
         uiPanel.SetActive(true);
+    }
+
+    private IEnumerator WaitAndLoadScene(string sceneName)
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()

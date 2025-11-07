@@ -774,7 +774,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 907299337}
         m_TargetAssemblyTypeName: LevelIntroLoader, Assembly-CSharp
-        m_MethodName: loadBackMainMenu
+        m_MethodName: loadBackSelectLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

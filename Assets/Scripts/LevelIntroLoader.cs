@@ -51,11 +51,11 @@ public class LevelIntroLoader : MonoBehaviour
         StartCoroutine(WaitAndLoadScene("InstructionsToMedium"));
     }
 
-    public void loadBackMainMenu()
+    public void loadBackSelectLevel()
     {
-        Debug.Log("Loading Mainmenu Page");
+        Debug.Log("Loading SelectLevel Page");
         Time.timeScale = 1f;
-        StartCoroutine(WaitAndLoadScene("MainMenu"));
+        StartCoroutine(WaitAndLoadScene("SelectLevel"));
     }
 
     public void QuitGame()
