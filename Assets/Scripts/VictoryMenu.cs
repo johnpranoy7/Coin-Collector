@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class VictoryMenu : MonoBehaviour
 {
+
+    public GameObject pausePanel;
+    public GameObject uiPanel;
+
     void Update()
     {
       Cursor.visible = true;
@@ -13,6 +17,17 @@ public class VictoryMenu : MonoBehaviour
     {
         Debug.Log("Loading MainMenu");
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartLevel()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+
+        uiPanel.SetActive(true);
     }
 
     public void QuitGame()

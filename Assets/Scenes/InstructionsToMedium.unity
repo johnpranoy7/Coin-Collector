@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4879460092097315300, guid: ac93ab981c546a141b3720cd3ae9b0bc, type: 3}
       propertyPath: m_text
-      value: "A, \u2190\nD, \u2192\nSpacebar\nEsc"
+      value: "A, \u2190\nD, \u2192\nSpace, W, \u2191\nEsc"
       objectReference: {fileID: 0}
     - target: {fileID: 4879460092097315300, guid: ac93ab981c546a141b3720cd3ae9b0bc, type: 3}
       propertyPath: m_fontSize

@@ -110,7 +110,7 @@ namespace Platformer
 
             
 
-            if ((Input.GetKeyDown(KeyCode.Space) || jumpFlag) && isGrounded)
+            if ( (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || jumpFlag) && isGrounded)
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
                 AudioSource.PlayClipAtPoint(coinSound.clip, transform.position);

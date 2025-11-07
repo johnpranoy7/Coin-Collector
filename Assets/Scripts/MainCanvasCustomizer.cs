@@ -5,16 +5,17 @@ public class MainCanvasCustomizer : MonoBehaviour
 {
     public Text coinText;
     public GameObject pausePanel;
+    public GameObject victoryPanel;
 
     void Update()
     {
-        if (!pausePanel.activeSelf)
+        if (pausePanel.activeSelf || victoryPanel.activeSelf)
         {
-            coinText.color = new Color(0.18f, 0.13f, 0.18f);
+            coinText.color = Color.white;
         }
         else
         {
-            coinText.color = Color.white;
+            coinText.color = new Color(0.18f, 0.13f, 0.18f);
         }
     }
 }
