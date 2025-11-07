@@ -16,6 +16,13 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(WaitAndLoadScene("SelectLevel"));
     }
 
+    public void showAboutPage()
+    {
+        Debug.Log("Loading AboutPage");
+        Time.timeScale = 1f;
+        StartCoroutine(WaitAndLoadScene("AboutGame"));
+    }
+
 
     public void QuitGame()
     {
