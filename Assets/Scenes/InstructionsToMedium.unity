@@ -373,6 +373,14 @@ PrefabInstance:
       propertyPath: m_text
       value: How To Play
       objectReference: {fileID: 0}
+    - target: {fileID: 1358755145120989714, guid: ac93ab981c546a141b3720cd3ae9b0bc, type: 3}
+      propertyPath: m_fontSize
+      value: 43.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358755145120989714, guid: ac93ab981c546a141b3720cd3ae9b0bc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 43.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3020961041713762557, guid: ac93ab981c546a141b3720cd3ae9b0bc, type: 3}
       propertyPath: m_Name
       value: InstructionsCanvas
