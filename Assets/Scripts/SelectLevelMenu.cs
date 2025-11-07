@@ -26,7 +26,7 @@ public class SelectLevelMenu : MonoBehaviour
     public void loadBackMainMenu()
     {
         Debug.Log("Loading Mainmenu Page");
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(WaitAndLoadScene("MainMenu"));
         Time.timeScale = 1f;
     }
 

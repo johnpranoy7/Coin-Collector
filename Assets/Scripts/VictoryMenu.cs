@@ -30,6 +30,12 @@ public class VictoryMenu : MonoBehaviour
         uiPanel.SetActive(true);
     }
 
+    private IEnumerator WaitAndLoadScene(string sceneName)
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

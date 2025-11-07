@@ -15,7 +15,7 @@ namespace Platformer
         private bool jumpFlag = false;
         private bool keyboardControlFlag = false;
         private float lastDamageTime = -Mathf.Infinity; // track last damage time
-        public float damageCooldown = 0.5f; // 0.5 second cooldown
+        public float damageCooldown = 3f; // 3 second cooldown
 
         private bool facingRight = false;
         [HideInInspector]
@@ -160,6 +160,7 @@ namespace Platformer
                 //deathState = true; // Say to GameManager that player is dead
                 healthBar.setHealth(healthBar.healthSlider.value - healthRegenerationRate);
                 lastDamageTime = Time.time;  // reset cooldown timer
+                StartCoroutine(Blink(0.1f, 3)); // For Blink animation
                 rigidbody.AddForce(transform.up * jumpForce/2, ForceMode2D.Impulse); 
                 Debug.Log("Player hit by enemy. Health: " + healthBar.healthSlider.value);
             }
@@ -174,6 +175,18 @@ namespace Platformer
                 deathState = false;
             }
 
+        }
+
+        private IEnumerator Blink(float blinkDuration, int blinkCount)
+        {
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            for (int i = 0; i < blinkCount; i++)
+            {
+                sr.enabled = false;
+                yield return new WaitForSeconds(blinkDuration);
+                sr.enabled = true;
+                yield return new WaitForSeconds(blinkDuration);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
