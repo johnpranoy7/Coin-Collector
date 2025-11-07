@@ -16,7 +16,7 @@ public class VictoryMenu : MonoBehaviour
     public void backtoMainMenu()
     {
         Debug.Log("Loading MainMenu");
-        StartCoroutine(WaitAndLoadScene("MainMenu"));
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void RestartLevel()
