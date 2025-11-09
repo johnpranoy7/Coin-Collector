@@ -16,12 +16,12 @@ Your Feedback is vital to us to make necessary improvements to the UI and the ov
 
 ## Controls
 
-| Action      | Keys                |
-|-------------|---------------------|
-| Move Left   | Left Arrow, A       |
-| Move Right  | Right Arrow, D      |
-| Jump        | Spacebar            |
-| Pause Game  | Escape (Esc)        |
+| Action      | Keys                  |
+|-------------|-----------------------|
+| Move Left   | Left Arrow, A         |
+| Move Right  | Right Arrow, D        |
+| Jump        | Spacebar, Up Arrow, W |            |
+| Pause Game  | Escape (Esc)          |
 
 ## Gameplay
 
