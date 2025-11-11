@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 187a8a24bf8d1d247b8fb9a4d7a62b19
+guid: 93db212625e79704e8d3aa61e18b8e88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7945368907654856970
-    second: natureBg_0
+      213: -6470460504253458178
+    second: 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: natureBg_0
+      name: 3_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 112
-        width: 1729
-        height: 967
+        x: 0
+        y: 0
+        width: 576
+        height: 193
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a018336dcee934e60800000000000000
-      internalID: 7945368907654856970
+      spriteID: ef817ce047e4436a0800000000000000
+      internalID: -6470460504253458178
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d0c76fb2578a3af46a70177c2b55f14e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      natureBg_0: 7945368907654856970
+      3_0: -6470460504253458178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
