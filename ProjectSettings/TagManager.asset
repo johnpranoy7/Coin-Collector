@@ -54,6 +54,9 @@ TagManager:
   - name: Cloud Layer3
     uniqueID: 2361431195
     locked: 0
+  - name: Vegetation
+    uniqueID: 346684979
+    locked: 0
   - name: Game Scene
     uniqueID: 1740399835
     locked: 0
