@@ -19,6 +19,19 @@ public class VictoryMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void NextLevel()
+    {
+        Debug.Log("Loading MediumLevel");
+
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+
+        uiPanel.SetActive(true);
+
+        SceneManager.LoadScene("MediumLevel");
+    }
+
     public void RestartLevel()
     {
         Application.LoadLevel(Application.loadedLevel);
