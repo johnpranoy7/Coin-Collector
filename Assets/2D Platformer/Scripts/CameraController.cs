@@ -12,7 +12,7 @@ namespace Platformer
         private Transform player;
         private int lastX;
         void Start () {
-            offset = new Vector2(Mathf.Abs(offset.x), offset.y);
+            offset = new Vector2(Mathf.Abs(offset.x), offset.y+1);
             FindPlayer(faceLeft);
         }
         public void FindPlayer(bool playerFaceLeft)
@@ -38,11 +38,11 @@ namespace Platformer
                 Vector3 target;
                 if (faceLeft)
                 {
-                    target = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
+                    target = new Vector3(player.position.x - offset.x, player.position.y + offset.y+1, transform.position.z);
                 }
                 else
                 {
-                    target = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
+                    target = new Vector3(player.position.x + offset.x, player.position.y + offset.y+1, transform.position.z);
                 }
                 Vector3 currentPosition = Vector3.Lerp(transform.position, target, damping * Time.deltaTime);
                 transform.position = currentPosition;
